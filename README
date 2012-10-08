@@ -1,0 +1,33 @@
+toMACAddr.jquery.js
+------------------------------
+
+A simple plugin for formatting delimited lists of MAC Addresses in HTML.
+
+Usage:
+------------------------------
+
+Given some HTML:
+  <p>Some MAC Address: <span class='toMacAddress'>00:a:1:B:d2:c</span></p>
+
+And a dash of JS:
+  $('.toMacAddress').toMacAddress({joiner: ':'});
+
+You get:
+  Some MAC Address: 00:0a:01:0b:d2:0c
+
+It's really that simple.  Pretty cool, huh?
+
+
+Additional options:
+------------------------------
+
+joiner: Should be one of ':', '.', '-', or '' for correct formatting.
+        If ':' or '-' (or anything else, for that matter) are used, the MAC is split into groups of two (2) and rejoined.
+        If '.' is used, the MAC is split into groups of four (4) and rejoined.
+
+casing: 'upper' or 'lower' (defaults to 'lower')
+
+abortOn: If you want to skip on a given match, use this
+         Use Case: You have a form where the same input can be used for multiple things, but one of those is a MAC, you can specify an escape character (set) to abort the MAC formatting.  (defaults to /[\/ ]/)
+
+splitOn: The text delimeter for multiple MACs (defaults to /,/)
